@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: discord-groq-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        fromSecret: DISCORD_BOT_TOKEN
+      - key: GROQ_API_KEY
+        fromSecret: GROQ_API_KEY
